@@ -33,9 +33,17 @@ class _QuizState extends State<Quiz> {
   @override
   Widget build(BuildContext context) {
     //ternary operation will halp us skip initState here
-    final widgetScreen = activeScreen == 'start-screen'
-        ? StartScreen(switchScreen)
-        : const QuestionScreen();
+    // final widgetScreen = activeScreen == 'start-screen'
+    //     ? StartScreen(switchScreen)
+    //     : const QuestionScreen();
+
+    //Here we can't use var keyword as when we try to assign QuestionScreen to widgetScreen it throws error
+    // as due to var widgetScreen wants to accept values of type StartScreen because it will treat StartScreen Class as a data type
+    Widget widgetScreen = StartScreen(switchScreen);
+
+    if(activeScreen == 'question-screen'){
+      widgetScreen = const QuestionScreen() ;
+    }
 
     return MaterialApp(
       home: Scaffold(
