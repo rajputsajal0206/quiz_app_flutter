@@ -5,11 +5,14 @@ class QuestionScreen extends StatefulWidget {
 
   @override
   State<QuestionScreen> createState() => _QuestionScreenState();
+  // State<QuestionScreen> createState() {
+  //    return  _QuestionScreenState();
+  // }
 }
 
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Placeholder();
+    return const Text('data');
   }
 }
