@@ -11,28 +11,32 @@ class Quiz extends StatefulWidget {
 
 //_QUIZSTATE class confirms that this is private and can be used only in this quiz.dart
 class _QuizState extends State<Quiz> {
-
   //the below statement confirms that activeScreen widget can be null or can have a widget as a value
-  Widget? activeScreen;
-
+  //Widget? activeScreen;
+  var activeScreen = 'start-screen';
 
   //initState method is called before execution of build method and post the memory allocation to objects and variables
-  @override
-  void initState() {
-    //in StartScreen we are passing function as argument and without paranthesis()
-    // Not calling with paranthesis as it will execute it
-    activeScreen = StartScreen(switchScreen);
-    super.initState();
-  }
+  // @override
+  // void initState() {
+  //   //in StartScreen we are passing function as argument and without paranthesis()
+  //   // Not calling with paranthesis as it will execute it
+  //   activeScreen = StartScreen(switchScreen);
+  //   super.initState();
+  // }
 
   void switchScreen() {
     setState(() {
-      activeScreen = const QuestionScreen();
+      activeScreen = 'question-screen';
     });
   }
 
   @override
   Widget build(BuildContext context) {
+    //ternary operation will halp us skip initState here
+    final widgetScreen = activeScreen == 'start-screen'
+        ? StartScreen(switchScreen)
+        : const QuestionScreen();
+
     return MaterialApp(
       home: Scaffold(
         //We use container to give styling and gradient to the layout
@@ -50,7 +54,7 @@ class _QuizState extends State<Quiz> {
           )),
           //We are calling StartScreen with const keyword because when we defined the class
           //we also declared a constructor for the Class with const keyword
-          child: activeScreen,
+          child: widgetScreen,
         ),
       ),
     );
@@ -60,3 +64,7 @@ class _QuizState extends State<Quiz> {
 // setState(() {
 //
 // });
+
+// Explaining how ternary works -->
+//1. activeScreen variable will have initial value as 'start-screen' so the value in widgetScreen returns true and StartScreen is loaded
+//2. When button is pressed, so switchScreen function is called and activeScreen value changes and build method is called and widgetScreen value returns false and QuestionScreen IS LOADED
