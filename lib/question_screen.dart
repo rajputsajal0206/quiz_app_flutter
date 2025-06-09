@@ -13,6 +13,20 @@ class QuestionScreen extends StatefulWidget {
 class _QuestionScreenState extends State<QuestionScreen> {
   @override
   Widget build(BuildContext context) {
-    return const Text('data');
+    return const SizedBox(
+      width: double.infinity,
+      child: Column(
+        mainAxisAlignment: MainAxisAlignment.center,
+        children:<Widget> [
+          Text('The Question is ...',
+            maxLines: 2,
+            style: TextStyle(
+              color: Colors.white,
+              fontSize: 24,
+            ),
+          )
+        ],
+      ),
+    );
   }
 }
