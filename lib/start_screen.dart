@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:google_fonts/google_fonts.dart';
 
 class StartScreen extends StatelessWidget {
   const StartScreen(this.startQuiz, {super.key});
@@ -18,7 +19,7 @@ class StartScreen extends StatelessWidget {
             //Color.fromARGB(   int a,   int r,   int g,   int b, )
             //int a--> it controls the opacity of the image where 0 is complete transparent and 255 being complete opeque
             //r,g,b --> controls red, green and blue color
-            color: const Color.fromARGB(150, 255, 255, 255),
+            color: const Color.fromARGB(200, 255, 255, 255),
           ),
           //Apart from above steps we can also use OPACITY class to wrap images class
           // Opacity(
@@ -31,11 +32,12 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const Text(
+          Text(
             'Start Quiz and Test Yourself !',
-            style: TextStyle(
-              color: Colors.white,
+            style: GoogleFonts.lato(
+              color: const Color.fromARGB(255, 237, 223, 252),
               fontSize: 24,
+              fontWeight: FontWeight.bold,
             ),
             maxLines: 2,
           ),

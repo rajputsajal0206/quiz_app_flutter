@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:quiz_app_flutter/question_screen.dart';
 import 'start_screen.dart';
+import 'data/questions.dart';
 
 class Quiz extends StatefulWidget {
   const Quiz({super.key});
@@ -11,6 +12,7 @@ class Quiz extends StatefulWidget {
 
 //_QUIZSTATE class confirms that this is private and can be used only in this quiz.dart
 class _QuizState extends State<Quiz> {
+  List<String> selectedAnswersList = [];
   //the below statement confirms that activeScreen widget can be null or can have a widget as a value
   //Widget? activeScreen;
   var activeScreen = 'start-screen';
@@ -30,6 +32,17 @@ class _QuizState extends State<Quiz> {
     });
   }
 
+  void choosenAnswersList(String answer) {
+    selectedAnswersList.add(answer);
+
+    if (selectedAnswersList.length == questionsList.length) {
+      setState(() {
+        selectedAnswersList = [];
+        activeScreen = 'start-screen';
+      });
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     //ternary operation will halp us skip initState here
@@ -42,7 +55,9 @@ class _QuizState extends State<Quiz> {
     Widget widgetScreen = StartScreen(switchScreen);
 
     if (activeScreen == 'question-screen') {
-      widgetScreen = const QuestionScreen();
+      widgetScreen = QuestionScreen(
+        onSelectAnswer: choosenAnswersList,
+      );
     }
 
     return MaterialApp(
