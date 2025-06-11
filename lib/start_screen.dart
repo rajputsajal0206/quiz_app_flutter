@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 class StartScreen extends StatelessWidget {
-  const StartScreen(this.startQuiz,{super.key});
+  const StartScreen(this.startQuiz, {super.key});
 
   final void Function() startQuiz;
 
@@ -31,7 +31,8 @@ class StartScreen extends StatelessWidget {
           const SizedBox(
             height: 40,
           ),
-          const Text('Start Quiz and Test Yourself !',
+          const Text(
+            'Start Quiz and Test Yourself !',
             style: TextStyle(
               color: Colors.white,
               fontSize: 24,
@@ -45,7 +46,8 @@ class StartScreen extends StatelessWidget {
             onPressed: startQuiz,
             icon: const Icon(Icons.arrow_right_alt),
             //In place of text we use label to give title to the button
-            label: const Text('Start Now',
+            label: const Text(
+              'Start Now',
             ),
             style: OutlinedButton.styleFrom(
               foregroundColor: Colors.white,
