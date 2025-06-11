@@ -41,8 +41,8 @@ class _QuizState extends State<Quiz> {
     // as due to var widgetScreen wants to accept values of type StartScreen because it will treat StartScreen Class as a data type
     Widget widgetScreen = StartScreen(switchScreen);
 
-    if(activeScreen == 'question-screen'){
-      widgetScreen = const QuestionScreen() ;
+    if (activeScreen == 'question-screen') {
+      widgetScreen = const QuestionScreen();
     }
 
     return MaterialApp(
